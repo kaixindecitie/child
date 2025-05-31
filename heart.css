@@ -1,0 +1,349 @@
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+/* 为爱心效果的容器 */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* 粒子效果容器 */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* 爱心样式 */
+.heart {
+  position: absolute;
+  transform: rotate(45deg);
+  animation: heart-fly var(--animation-duration, 3s) ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heart::after {
+  left: -50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 浪漫元素 */
+.romantic-element {
+  position: absolute;
+  pointer-events: none;
+  animation: floatAnimation var(--float-duration, 10s) infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* 心形元素 */
+.heart-shaped {
+  transform: rotate(45deg);
+}
+
+.heart-shaped::before,
+.heart-shaped::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-shaped::before {
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heart-shaped::after {
+  left: -50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 星形元素 */
+.star-shaped {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* 星星样式 */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkleAnimation var(--twinkle-duration, 2s) infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* 闪烁星星 */
+.sparkle {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* 发光效果 */
+.glow {
+  filter: drop-shadow(0 0 8px rgba(255, 153, 204, 0.8));
+}
+
+/* 五彩纸屑 */
+.confetti {
+  position: absolute;
+  animation: confetti-fall var(--animation-duration, 3s) ease-in forwards;
+  will-change: transform, opacity;
+}
+
+.confetti.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.confetti.square {
+  transform: rotate(var(--rotation, 0deg));
+}
+
+/* 备注动画 */
+.note {
+  position: absolute;
+  color: #ff3399;
+  animation: note-fly var(--animation-duration, 5s) ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* 动画定义 */
+@keyframes heart-fly {
+  0% {
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(0) translateY(var(--fly-distance, -300px)) translateX(var(--horizontal-offset, 0px)) rotate(45deg);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+    filter: blur(0);
+  }
+  25% {
+    transform: translateY(calc(var(--float-distance, -100px) * -0.5)) rotate(calc(var(--rotation, 180deg) * 0.25));
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+  50% {
+    transform: translateY(var(--float-distance, -100px)) rotate(calc(var(--rotation, 180deg) * 0.5));
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  75% {
+    transform: translateY(calc(var(--float-distance, -100px) * -0.5)) rotate(calc(var(--rotation, 180deg) * 0.75));
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+  100% {
+    transform: translateY(0) rotate(var(--rotation, 180deg));
+    opacity: 0.9;
+    filter: blur(0);
+  }
+}
+
+@keyframes twinkleAnimation {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: var(--twinkle-min, 0.5);
+    transform: scale(var(--twinkle-scale-min, 0.7));
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) rotate(var(--rotation, 360deg)) translateX(var(--horizontal-drift, 0px));
+    opacity: 0;
+  }
+}
+
+@keyframes note-fly {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-400px) translateX(var(--horizontal-offset, 0px));
+    opacity: 0;
+  }
+}    
+body {
+  background: linear-gradient(135deg, #ffe4ec, #ffd6f5, #fceeff);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+.background-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* 白色透明 */
+  z-index: -1;
+}
+.photo-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+  justify-items: center;
+}
+
+@media (max-width: 900px) {
+  .photo-wall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-wall {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .photo-frame, .photo-card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+.photo-frame {
+  width: 150px;
+  height: 200px;
+  background: linear-gradient(145deg, #fff0f5, #ffe4ec);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.photo-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #ffc0cb;
+}
+
+.photo-frame p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #d63384;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+.photo-card {
+		width: 200px;
+		height: 260px;
+		perspective: 1000px;
+		margin: 10px;
+		display: inline-block;
+	}
+	.photo-card-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transition: transform 0.8s;
+		transform-style: preserve-3d;
+		cursor: pointer;
+	}
+	.photo-card.flipped .photo-card-inner {
+		transform: rotateY(180deg);
+	}
+	.photo-card-front, .photo-card-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	}
+	.photo-card-front img {
+		width: 100%;
+		height: 80%;
+		object-fit: cover;
+		border-radius: 10px 10px 0 0;
+	}
+	.photo-card-front p {
+		margin: 5px 0;
+		font-weight: bold;
+		color: #333;
+    letter-spacing: 0.3px;
+	}
+	.photo-card-back {
+		background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+		color: #d6336c;
+		transform: rotateY(180deg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 15px;
+		font-size: 16px;
+		border-radius: 10px;
+		box-sizing: border-box;
+    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+	}
+  .flip-surprise::after {
+  content: "💖";
+  position: absolute;
+  animation: explode 0.6s ease-out;
+  font-size: 24px;
+}
+
+@keyframes explode {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}

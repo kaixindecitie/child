@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁六一零食金字塔礼盒🎁</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="heart.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF69B4', // 粉色主色调
+            secondary: '#FFB6C1', // 浅粉色
+            accent: '#FFC0CB', // 更浅的粉色
+            neutral: '#2A2A3A', // 深色背景
+            light: '#FDF5E6', // 浅色文本
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-gradient-to-br from-neutral to-neutral/90 min-h-screen text-light overflow-x-hidden">
+  <!-- 顶部导航 -->
+  <nav class="fixed top-0 w-full z-50 bg-neutral/80 backdrop-blur-md border-b border-primary/20">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-gift text-primary text-2xl"></i>
+        <h1 class="text-xl font-bold text-primary">子晔天天开心</h1>
+      </div>
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#snacks" class="hover:text-primary transition-colors duration-300">零食清单</a>
+        <a href="#message" class="hover:text-primary transition-colors duration-300">爱的留言</a>
+      </div>
+      <button class="md:hidden text-primary text-xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/106/1920/1080')] bg-cover bg-center opacity-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-30"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-light mb-4 leading-tight">
+          <span class="text-primary">六一</span>快乐<br>我的小宝贝
+        </h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-light/80 mb-8 max-w-2xl mx-auto">
+          愿这份特别的礼物，能带给你满满的甜蜜与惊喜，就像你带给我的生活一样。
+        </p>
+        <a href="#pyramid" class="inline-block bg-primary hover:bg-primary/90 text-neutral font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+          往下翻嘻嘻 <i class="fa fa-arrow-down ml-2"></i>
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-neutral to-transparent"></div>
+  </header>
+
+  
+
+  <!-- 零食清单区域 -->
+  <section id="snacks" class="py-16 md:py-24 bg-neutral/90 relative">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/id/431/1920/1080')] bg-cover bg-center opacity-5"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-light mb-4">
+          <span class="text-primary">零食</span>清单
+        </h2>
+        <p class="text-light/70 max-w-2xl mx-auto">
+          看看金字塔里都有哪些美味的零食吧！
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 零食卡片 1 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/292/400/300" alt="乐事薯片" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">乐事薯片</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第一层</span>
+            </div>
+            <p class="text-light/70 mb-4">你最爱吃的原味和番茄味乐事薯片，松脆可口，回味无穷。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-heart text-secondary mr-1"></i>
+              <span>你最爱的口味</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 零食卡片 2 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/139/400/300" alt="冻干水果" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">冻干水果</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第二层</span>
+            </div>
+            <p class="text-light/70 mb-4">草莓、蓝莓、芒果冻干，保留水果的营养和美味，健康又好吃。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-leaf text-accent mr-1"></i>
+              <span>健康小零食</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 零食卡片 3 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/1080/400/300" alt="水果干" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">水果干</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第三层</span>
+            </div>
+            <p class="text-light/70 mb-4">精选苹果干、香蕉干、菠萝干，口感香甜，方便携带。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-sun-o text-primary mr-1"></i>
+              <span>阳光的味道</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 零食卡片 4 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/225/400/300" alt="巧克力" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">巧克力</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第四层</span>
+            </div>
+            <p class="text-light/70 mb-4">丝滑牛奶巧克力和浓郁黑巧克力，给你甜蜜的享受。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-heart text-secondary mr-1"></i>
+              <span>甜蜜的象征</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 零食卡片 5 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/291/400/300" alt="坚果" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">坚果礼盒</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第五层</span>
+            </div>
+            <p class="text-light/70 mb-4">巴旦木、腰果、核桃，营养丰富，美味可口。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-bolt text-accent mr-1"></i>
+              <span>能量小炸弹</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 零食卡片 6 -->
+        <div class="bg-neutral/40 backdrop-blur-sm rounded-xl overflow-hidden border border-primary/20 shadow-lg group transition-all duration-500 hover:shadow-xl hover:border-primary/40">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/id/431/400/300" alt="糖果" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-light">糖果礼盒</h3>
+              <span class="bg-primary/20 text-primary text-sm font-medium px-3 py-1 rounded-full">第六层</span>
+            </div>
+            <p class="text-light/70 mb-4">各种口味的软糖、硬糖、巧克力糖，满足你的甜蜜需求。</p>
+            <div class="flex items-center text-sm text-light/60">
+              <i class="fa fa-star text-primary mr-1"></i>
+              <span>多彩的甜蜜</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 爱的留言区域 -->
+  <section id="message" class="py-16 md:py-24 bg-neutral relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/id/1071/1920/1080')] bg-cover bg-center opacity-5"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 opacity-50"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-light mb-4">
+            <span class="text-primary">爱的</span>留言
+          </h2>
+          <p class="text-light/70 max-w-2xl mx-auto">
+            致我最爱的人，六一儿童节快乐！
+          </p>
+        </div>
+
+        <div class="bg-neutral/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-primary/30 shadow-xl relative overflow-hidden">
+          <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full"></div>
+          <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary/10 rounded-full"></div>
+
+          <div class="relative z-10 space-y-6">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
+                <img src="photo.png" alt="你的照片" class="w-full h-full object-cover">
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-light">给我最爱的宝贝</h3>
+                <p class="text-light/70">六一儿童节快乐</p>
+              </div>
+            </div>
+
+            <div class="bg-neutral/20 rounded-xl p-6 border border-primary/10 text-light/90">
+              <p class="mb-4 leading-relaxed">亲爱的，六一儿童节快乐！</p>
+              <p class="mb-4 leading-relaxed">虽然我们都已经长大，但在我心里，你永远是那个需要被呵护的小朋友。</p>
+              <p class="mb-4 leading-relaxed">这个零食金字塔是我精心为你准备的礼物，每一层都代表着我对你的爱和关心。</p>
+              <p class="mb-4 leading-relaxed">希望这些美味的零食能带给你快乐，就像你带给我的生活一样甜蜜。</p>
+              <p class="mb-4 leading-relaxed">愿你永远保持一颗童心，无忧无虑，笑口常开。</p>
+              <p class="mb-4 leading-relaxed">我爱你，永远永远。</p>
+              <div class="mt-6 text-right">
+                <p class="font-semibold text-primary">永远爱你的人</p>
+              </div>
+            </div>
+
+            <div class="mt-8 text-center">
+              <button id="toggle-message" class="bg-primary hover:bg-primary/90 text-neutral font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                <i class="fa fa-heart mr-2"></i> 点击表达爱意
+              </button>
+              <div id="message-response" class="mt-6 hidden">
+                <div class="bg-primary/10 rounded-xl p-4 border border-primary/20 text-primary">
+                  <p class="text-center font-medium">❤️ 我也爱你，永远永远 ❤️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-neutral/90 border-t border-primary/20 py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center">
+            <i class="fa fa-gift text-primary text-xl mr-2"></i>
+            <span class="text-light font-semibold">六一特别礼物</span>
+          </div>
+          <p class="text-light/60 text-sm mt-1">给我最爱的天天</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-light/60 hover:text-primary transition-colors duration-300">
+            <i class="fa fa-heart"></i>
+          </a>
+          <a href="#" class="text-light/60 hover:text-primary transition-colors duration-300">
+            <i class="fa fa-star"></i>
+          </a>
+          <a href="#" class="text-light/60 hover:text-primary transition-colors duration-300">
+            <i class="fa fa-gift"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 border-t border-primary/10 text-center text-light/40 text-sm">
+        <p>六一儿童节快乐 ❤️ 2025</p>
+      </div>
+    </div>
+    <!-- 固定音频播放栏 -->
+<div class="fixed bottom-0 left-0 w-full bg-neutral/90 border-t border-primary/20 shadow-lg z-50">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+
+
+   <audio id="audio" controls>
+            <source src="child.m4a" audio/mpeg">
+            您的浏览器不支持音频播放。
+        </audio>
+  </div>
+</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="heart.js"></script>
+
+</body>
+</html>
